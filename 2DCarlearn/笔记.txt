@@ -20,7 +20,7 @@ Prefab系统
 
 有区别的东西：
 1.定义的相关属性需要添加 @Prop{} 属性才能在面板里面展示
-
+2.对于getcomponent的脚本 需要在当前引用脚本里面进行引用 否则会找不到报错
 
 
 ***************************************************************************************
@@ -33,6 +33,15 @@ Prefab系统
 问题3：无法将prefab拖入到Scene进行修改保存，进入Prefab无法修改Pivot，并且当你修改pivot后创建新的prefab的pivot点会归到左上角（0,0）
 问题4：在编辑器内创建的prefab 删除 重新创建，如果名称一样，那么新创建的prefab还是之前的prefab  感觉这是编辑器缓存了之前的prefab
 解决方法：重启LayaIDE
+
+问题4：stage和scene  scene是stage的子物体的子物体
+ //获取stage下面的scene
+ Laya.stage.getChildAt(0).getChildAt(0)
+
+ 问题5：在laya里面使用自定义字体
+ 1.需要对字体进行加载
+ 2.注意ide中Text字体位置不能写任何东西
+
 
 
 

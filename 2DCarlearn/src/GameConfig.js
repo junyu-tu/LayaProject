@@ -3,6 +3,9 @@ import AutoMove from "./scripts/AutoMove"
 import StartPanel from "./scripts/StartPanel"
 import Player from "./scripts/Player"
 import GameManager from "./scripts/GameManager"
+import GamePanel from "./scripts/GamePanel"
+import PausePanel from "./scripts/PausePanel"
+import GameOverPanel from "./scripts/GameOverPanel"
 import Car from "./scripts/Car"
 
 export default class GameConfig {
@@ -13,6 +16,9 @@ export default class GameConfig {
 		reg("scripts/StartPanel.js",StartPanel);
 		reg("scripts/Player.js",Player);
 		reg("scripts/GameManager.js",GameManager);
+		reg("scripts/GamePanel.js",GamePanel);
+		reg("scripts/PausePanel.js",PausePanel);
+		reg("scripts/GameOverPanel.js",GameOverPanel);
 		reg("scripts/Car.js",Car);
     }
 }
