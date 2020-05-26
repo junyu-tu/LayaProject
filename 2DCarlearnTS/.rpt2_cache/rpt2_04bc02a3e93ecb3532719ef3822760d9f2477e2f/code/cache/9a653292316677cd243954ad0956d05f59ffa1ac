@@ -1,0 +1,4 @@
+{
+  "code": "export default class AutoMove extends Laya.Script {\r\n    constructor() {\r\n        super();\r\n        this.moveSpeed = 20;\r\n        this.height = 0;\r\n    }\r\n    onAwake() {\r\n        this.height = this.owner.height;\r\n        Laya.timer.frameLoop(1, this, this.frameLoop);\r\n    }\r\n    frameLoop() {\r\n        this.owner.y += this.moveSpeed;\r\n        if (this.owner.y >= this.height) {\r\n            this.owner.y -= this.height * 2;\r\n        }\r\n    }\r\n}\r\n",
+  "references": []
+}

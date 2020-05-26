@@ -1,0 +1,4 @@
+{
+  "code": "export default class Car extends Laya.Script {\r\n    constructor() {\r\n        super();\r\n        this.speed = 15;\r\n        this.sign = \"\";\r\n    }\r\n    onAwake() {\r\n        Laya.timer.frameLoop(1, this, this.frameMove);\r\n    }\r\n    Init(sign) {\r\n        this.sign = sign;\r\n    }\r\n    frameMove() {\r\n        this.owner.y += this.speed;\r\n    }\r\n    onTriggerExit(other) {\r\n        if (other.label == \"BottomCollider\") {\r\n            this.owner.removeSelf();\r\n            this.recover();\r\n        }\r\n    }\r\n    recover() {\r\n        Laya.Pool.recover(this.sign, this.owner);\r\n    }\r\n}\r\n",
+  "references": []
+}

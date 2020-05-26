@@ -1,0 +1,13 @@
+{
+  "code": "import AutoMove from \"./scripts/AutoMove\";\r\nimport StartPanel from \"./scripts/StartPanel\";\r\nimport Player from \"./scripts/Player\";\r\nimport GamePanel from \"./scripts/GamePanel\";\r\nimport PausePanel from \"./scripts/PausePanel\";\r\nimport GameOverPanel from \"./scripts/GameOverPanel\";\r\nimport GameManager from \"./scripts/GameManager\";\r\nimport Car from \"./scripts/Car\";\r\nexport default class GameConfig {\r\n    constructor() {\r\n    }\r\n    static init() {\r\n        var reg = Laya.ClassUtils.regClass;\r\n        reg(\"scripts/AutoMove.ts\", AutoMove);\r\n        reg(\"scripts/StartPanel.ts\", StartPanel);\r\n        reg(\"scripts/Player.ts\", Player);\r\n        reg(\"scripts/GamePanel.ts\", GamePanel);\r\n        reg(\"scripts/PausePanel.ts\", PausePanel);\r\n        reg(\"scripts/GameOverPanel.ts\", GameOverPanel);\r\n        reg(\"scripts/GameManager.ts\", GameManager);\r\n        reg(\"scripts/Car.ts\", Car);\r\n    }\r\n}\r\nGameConfig.width = 1080;\r\nGameConfig.height = 1920;\r\nGameConfig.scaleMode = \"showall\";\r\nGameConfig.screenMode = \"none\";\r\nGameConfig.alignV = \"middle\";\r\nGameConfig.alignH = \"center\";\r\nGameConfig.startScene = \"Main.scene\";\r\nGameConfig.sceneRoot = \"\";\r\nGameConfig.debug = false;\r\nGameConfig.stat = false;\r\nGameConfig.physicsDebug = false;\r\nGameConfig.exportSceneToJson = true;\r\nGameConfig.init();\r\n",
+  "references": [
+    "D:/SikiLaya/2DCarlearnTS/src/scripts/AutoMove.ts",
+    "D:/SikiLaya/2DCarlearnTS/src/scripts/StartPanel.ts",
+    "D:/SikiLaya/2DCarlearnTS/src/scripts/Player.ts",
+    "D:/SikiLaya/2DCarlearnTS/src/scripts/GamePanel.ts",
+    "D:/SikiLaya/2DCarlearnTS/src/scripts/PausePanel.ts",
+    "D:/SikiLaya/2DCarlearnTS/src/scripts/GameOverPanel.ts",
+    "D:/SikiLaya/2DCarlearnTS/src/scripts/GameManager.ts",
+    "D:/SikiLaya/2DCarlearnTS/src/scripts/Car.ts"
+  ]
+}
