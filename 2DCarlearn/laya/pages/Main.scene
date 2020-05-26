@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"Scene",
-    "selectedBox":2,
-    "selecteID":97,
+    "selectedBox":12,
+    "selecteID":9,
     "searchKey":"Scene",
     "props":{"width":1080,"sceneColor":"#000000","height":1920},
     "nodeParent":-1,
-    "maxID":100,
+    "maxID":143,
     "label":"Scene",
     "isOpen":true,
     "isDirectory":true,
@@ -83,13 +83,14 @@
             "props":{"zOrder":10,"y":0,"x":0,"name":"StartPanel"},
             "nodeParent":2,
             "label":"StartPanel",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":12,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,bg",
                     "props":{"y":0,"x":0,"width":1080,"skin":"Sprites/UI/bg.png","name":"bg","height":1920},
@@ -103,6 +104,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":300,"x":250,"width":604,"skin":"Sprites/UI/GameLogo.png","height":302},
@@ -116,6 +118,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_AudioOn",
                     "props":{"y":1335,"x":731,"stateNum":"1","skin":"Sprites/UI/ButtonSoundOn.png","name":"btn_AudioOn"},
@@ -129,6 +132,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "searchKey":"Button,btn_AudioOff",
                     "props":{"y":1335,"x":731,"visible":false,"stateNum":"1","skin":"Sprites/UI/ButtonSoundOff.png","name":"btn_AudioOff"},
@@ -142,6 +146,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/scripts/StartPanel.js",
@@ -158,6 +163,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Animation",
                     "searchKey":"Animation,btn_Play",
                     "props":{"y":960,"x":552,"width":0,"source":"Animation/BtnPlay.ani","scaleY":1.5,"scaleX":1.5,"rotation":0,"name":"btn_Play","mouseThrough":true,"height":0,"autoPlay":true},
@@ -171,15 +177,15 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Sprite",
-            "searchKey":"Sprite,player",
-            "props":{"y":1360,"x":450,"width":120,"texture":"Sprites/Car1.png","rotation":0,"pivotY":118,"pivotX":60,"name":"player","height":236},
+            "searchKey":"Sprite,Player",
+            "props":{"y":1360,"x":450,"width":120,"texture":"Sprites/Car1.png","rotation":0,"pivotY":118,"pivotX":60,"name":"Player","height":236},
             "nodeParent":2,
-            "label":"player",
+            "label":"Player",
             "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
@@ -217,6 +223,21 @@
                     "compId":23,
                     "child":[
                         ]
+                },
+                {
+                    "type":"BoxCollider",
+                    "switchAble":true,
+                    "searchKey":"BoxCollider",
+                    "removeAble":true,
+                    "props":{"y":5,"x":4,"width":107,"height":223},
+                    "nodeParent":21,
+                    "label":"BoxCollider",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":105,
+                    "child":[
+                        ]
                 }]
         },
         {
@@ -243,14 +264,13 @@
             "props":{"y":1950,"x":0,"width":1080,"name":"BottomCollider","height":16},
             "nodeParent":2,
             "label":"BottomCollider",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":97,
             "child":[
                 {
-                    "x":30,
                     "type":"BoxCollider",
                     "switchAble":true,
                     "searchKey":"BoxCollider",
@@ -266,7 +286,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"RigidBody",
                     "switchAble":true,
                     "searchKey":"RigidBody",
@@ -278,6 +297,326 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":99,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "searchKey":"Sprite,GamePanel",
+            "props":{"zOrder":10,"visible":false,"name":"GamePanel"},
+            "nodeParent":2,
+            "label":"GamePanel",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":110,
+            "child":[
+                {
+                    "type":"Button",
+                    "searchKey":"Button,btn_Pause",
+                    "props":{"y":53,"x":41,"stateNum":"1","skin":"Sprites/UI/ButtonPause.png","name":"btn_Pause"},
+                    "nodeParent":110,
+                    "label":"btn_Pause",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":106,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Text",
+                    "searchKey":"Text,txt_Best",
+                    "props":{"y":53,"x":540,"width":497,"valign":"middle","text":"Best::0","name":"txt_Best","height":106,"fontSize":100,"color":"#1d9bcc","align":"right"},
+                    "nodeParent":110,
+                    "label":"txt_Best",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":107,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Text",
+                    "searchKey":"Text,txt_Last",
+                    "props":{"y":159,"x":624,"width":413,"valign":"middle","text":"Last:0","name":"txt_Last","height":101,"fontSize":80,"color":"#f35654","align":"right"},
+                    "nodeParent":110,
+                    "label":"txt_Last",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":108,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Text",
+                    "searchKey":"Text,txt_Score",
+                    "props":{"y":315,"x":320,"width":413,"valign":"middle","text":"0","strokeColor":"#000000","stroke":5,"name":"txt_Score","height":199,"fontSize":200,"color":"#99ea09","align":"center"},
+                    "nodeParent":110,
+                    "label":"txt_Score",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":109,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/scripts/GamePanel.js",
+                    "searchKey":"Script,GamePanel",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":110,
+                    "label":"GamePanel",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":113,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "searchKey":"Sprite,PausePanel",
+            "props":{"zOrder":10,"y":0,"x":0,"visible":false,"name":"PausePanel"},
+            "nodeParent":2,
+            "label":"PausePanel",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":121,
+            "child":[
+                {
+                    "type":"Image",
+                    "searchKey":"Image",
+                    "props":{"width":1080,"skin":"Sprites/UI/bg.png","height":1920},
+                    "nodeParent":121,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":114,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Button",
+                    "searchKey":"Button,btn_Close",
+                    "props":{"y":52,"x":41,"stateNum":"1","skin":"Sprites/UI/ButtonPause.png","name":"btn_Close"},
+                    "nodeParent":121,
+                    "label":"btn_Close",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":115,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Button",
+                    "searchKey":"Button,btn_Home",
+                    "props":{"y":892.5,"x":251,"stateNum":"1","skin":"Sprites/UI/ButtonHome2.png","name":"btn_Home"},
+                    "nodeParent":121,
+                    "label":"btn_Home",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":116,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Button",
+                    "searchKey":"Button,btn_Restart",
+                    "props":{"y":892.5,"x":470,"stateNum":"1","skin":"Sprites/UI/ButtonRestart.png","name":"btn_Restart"},
+                    "nodeParent":121,
+                    "label":"btn_Restart",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":117,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Button",
+                    "searchKey":"Button,btn_AudioOn",
+                    "props":{"y":892.5,"x":684,"stateNum":"1","skin":"Sprites/UI/ButtonSoundOn1.png","name":"btn_AudioOn"},
+                    "nodeParent":121,
+                    "label":"btn_AudioOn",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":118,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Button",
+                    "searchKey":"Button,btn_AudioOff",
+                    "props":{"y":892,"x":684,"stateNum":"1","skin":"Sprites/UI/ButtonSoundOff1.png","name":"btn_AudioOff"},
+                    "nodeParent":121,
+                    "label":"btn_AudioOff",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":119,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Text",
+                    "searchKey":"Text,txt_Pause",
+                    "props":{"y":674,"x":254,"width":580,"valign":"middle","text":"PAUSE","strokeColor":"#000000","stroke":5,"name":"txt_Pause","height":138,"fontSize":150,"color":"#ef5b07","align":"center"},
+                    "nodeParent":121,
+                    "label":"txt_Pause",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":120,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/scripts/PausePanel.js",
+                    "searchKey":"Script,PausePanel",
+                    "removeAble":true,
+                    "props":{"btn_AudioOn":"@node:118","btn_AudioOff":"@node:119"},
+                    "nodeParent":121,
+                    "label":"PausePanel",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":122,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "searchKey":"Sprite,GameOverPanel",
+            "props":{"zOrder":10,"y":0,"x":0,"visible":false,"name":"GameOverPanel"},
+            "nodeParent":2,
+            "label":"GameOverPanel",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":136,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image",
+                    "props":{"width":1080,"skin":"Sprites/UI/bg.png","height":1920},
+                    "nodeParent":136,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":127,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "searchKey":"Button,btn_Home",
+                    "props":{"y":892.5,"x":310,"stateNum":"1","skin":"Sprites/UI/ButtonHome2.png","name":"btn_Home"},
+                    "nodeParent":136,
+                    "label":"btn_Home",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":128,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "searchKey":"Button,btn_Restart",
+                    "props":{"y":892.5,"x":658,"stateNum":"1","skin":"Sprites/UI/ButtonRestart.png","name":"btn_Restart"},
+                    "nodeParent":136,
+                    "label":"btn_Restart",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":129,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text,txt_GameOver",
+                    "props":{"y":364,"x":254,"width":580,"valign":"middle","text":"GameOver","strokeColor":"#000000","stroke":5,"name":"txt_GameOver","height":138,"fontSize":120,"color":"#ef5b07","align":"center"},
+                    "nodeParent":136,
+                    "label":"txt_GameOver",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":130,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text,txt_Score",
+                    "props":{"y":516,"x":254,"width":580,"valign":"middle","text":"Score:100","strokeColor":"#000000","stroke":5,"name":"txt_Score","height":138,"fontSize":100,"color":"#ef5b07","align":"center"},
+                    "nodeParent":136,
+                    "label":"txt_Score",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":134,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text,txt_HightScore",
+                    "props":{"y":647,"x":254,"width":580,"valign":"middle","text":"HightScore:100","strokeColor":"#000000","stroke":5,"name":"txt_HightScore","height":138,"fontSize":80,"color":"#ef5b07","align":"center"},
+                    "nodeParent":136,
+                    "label":"txt_HightScore",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":135,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/scripts/GameOverPanel.js",
+                    "searchKey":"Script,GameOverPanel",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":136,
+                    "label":"GameOverPanel",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":137,
                     "child":[
                         ]
                 }]

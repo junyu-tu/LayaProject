@@ -9,9 +9,11 @@ export default class AutoMove extends Laya.Script{
 
     onAwake(){
         this.height = this.owner.height;
+        //按照帧数去调用方法
+        Laya.timer.frameLoop(1,this,this.frameLoop)
     }
 
-    onUpdate(){
+    frameLoop(){
         this.owner.y+=this.moveSpeed;
 
         if(this.owner.y >= this.height ){

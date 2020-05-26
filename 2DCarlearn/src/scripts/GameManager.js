@@ -19,7 +19,8 @@ export default class GameMamager extends Laya.Script{
         // this.car_6 = null;
         //缓存加载出来的prefab
         this.carPrefabArr=[];
-
+        this.isStartGame = false;
+        this.spawnCarArr = []; //存放生成的所有obj
     }
 
     onAwake(){
@@ -29,7 +30,27 @@ export default class GameMamager extends Laya.Script{
         //     this.spawn();
         //     this.ranTime = this.getRandom(300,800);
         // });
+        Laya.stage.on("StartGame",this,function(){this.isStartGame = true});
+        Laya.stage.on("GameOver",this,this.gameOver);
         this.loadCarPrefab();
+    }
+
+    //游戏结束 删除场景中所有已经产生过的 obj
+    gameOver(){
+        this.isStartGame = false;
+        this.spawnCarArr.forEach(element => {
+            element.removeSelf();
+        });
+    }
+
+    homeBtnClick(){
+        this.gameOver();
+    }
+
+    restartBtnClick(){
+        this.spawnCarArr.forEach(element => {
+            element.removeSelf();
+        });
     }
 
     /**加载prefab */
@@ -43,6 +64,7 @@ export default class GameMamager extends Laya.Script{
             "prefab/Car_4.json",
             "prefab/Car_5.json",
             "prefab/Car_6.json",
+            "prefab/Coin.json",
         ]
         var infoArr = [];
         for(var i=0;i<pathArr.length;i++){
@@ -59,17 +81,20 @@ export default class GameMamager extends Laya.Script{
             }
             console.log(this.carPrefabArr);
 
-            this.ranTime = this.getRandom(300,800);
+            this.ranTime = this.getRandom(500,1000);
             //这是个根据时间进行循环调用的方法
             Laya.timer.loop(this.ranTime,this,function(){
                 this.spawn();
-                this.ranTime = this.getRandom(300,800);
+                this.ranTime = this.getRandom(500,1000);
             });
         }));
     }
 
     /** X坐标  190 380 570 760*/
     spawn(){
+        if(!this.isStartGame) 
+            return;
+
         var arrX = [190,380,570,760];
         this.arrY = -300;
         //获取敌人汽车随机出现的位置
@@ -83,11 +108,13 @@ export default class GameMamager extends Laya.Script{
 
         // var carPrefab= this.carPrefabArr[carIndex];
         // var car = carPrefab.create();
-        Laya.stage.addChild(car);
+        //获取stage下面的scene
+        Laya.stage.getChildAt(0).getChildAt(0).addChild(car);
         car.pos(this.x,this.arrY);
         //传递标识符
         car.getComponent(Car).Init(carIndex.toString());
 
+        this.spawnCarArr.push(car);
         //随机敌人汽车
         // var typeArr = [1,2,3,4,5,6];
         // var typeIndex = this.getRandom(0,typeArr.length-1);

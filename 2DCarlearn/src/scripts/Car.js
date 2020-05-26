@@ -9,14 +9,14 @@ export default class Car extends Laya.Script{
     }
 
     onAwake(){
-
+        Laya.timer.frameLoop(1,this,this.frameMove)
     } 
 
     Init(sign){
         this.sign = sign;
     }
 
-    onUpdate(){
+    frameMove(){
         this.owner.y+=this.speed;
     }
 
@@ -26,9 +26,12 @@ export default class Car extends Laya.Script{
         if(other.label == "BottomCollider"){
             //将自己移出舞台
             this.owner.removeSelf();
-            //对象池回收
-            Laya.Pool.recover(this.sign,this.owner);
-            console.log("0000000");
+            this.recover();
         }       
+    }
+
+    recover(){
+        //对象池回收
+        Laya.Pool.recover(this.sign,this.owner);
     }
 }

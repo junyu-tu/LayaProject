@@ -1,3 +1,4 @@
+import Car from "./Car";
 
 export default class Player extends Laya.Script{
 
@@ -14,16 +15,19 @@ export default class Player extends Laya.Script{
     }
 
     onAwake(){
+        Laya.SoundManager.playMusic("res/Sounds/FutureWorld_Dark_Loop_03.ogg",0);
         Laya.stage.on(Laya.Event.MOUSE_DOWN,this,this.mouseDown);
         Laya.stage.on(Laya.Event.MOUSE_UP,this,this.mouseUp);
         Laya.stage.on("StartGame",this,function(){
             this.isStartGame = true;
         });
+        Laya.stage.on("Pause",this,function(){
+            this.isStartGame = false;
+        });
         //获取RigidBody
         this.rig = this.owner.getComponent(Laya.RigidBody);
         //随机小汽车 初始位置
-        var index= this.getRandom(0,this.initXArr.length-1);
-        this.owner.pos(this.initXArr[index],this.initY);
+        this.ResetCarPos();
     }
 
     onUpdate(){
@@ -35,11 +39,22 @@ export default class Player extends Laya.Script{
        }
     }
 
+    ResetCarPos(){
+        //随机小汽车 初始位置
+        var index= this.getRandom(0,this.initXArr.length-1);
+        this.owner.pos(this.initXArr[index],this.initY);
+    }
+
     mouseDown(){
         if(this.isStartGame == false){
             return;
         }
 
+        //500位置上方的点击  无效
+        if(Laya.stage.mouseY<500) {
+            return;
+        }
+        
        var mouseX =  Laya.stage.mouseX;
        var force = 0;
        if(mouseX <Laya.stage.width/2){
@@ -72,5 +87,22 @@ export default class Player extends Laya.Script{
         var value = Math.random()*(max-min);
         value = Math.round(value);
         return min+value;
+    }
+
+    onTriggerEnter(other){
+        if(other.label == "Car"){
+            Laya.SoundManager.playSound("res/Sounds/CarCrash.ogg",1);
+            //游戏结束   发送游戏结束的事件
+            Laya.stage.event("GameOver");
+            this.isStartGame = false;
+        }
+        if(other.label == "Coin"){
+            Laya.SoundManager.playSound("res/Sounds/Bonus.ogg",1);
+            //隐藏金币并回收  
+            other.owner.removeSelf();
+            other.owner.getComponent(Car).recover();
+            //获得加分  TODO
+            Laya.stage.event("AddScore",10);
+        }
     }
 }
