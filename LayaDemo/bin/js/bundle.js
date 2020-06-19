@@ -122,6 +122,7 @@
            //     box.getChildAt(2).text = array[index].score;
            // }
 
+           //进度条组件
            this.isMouseDown = false;
            Laya.stage.on(Laya.Event.MOUSE_DOWN,this,function(){this.isMouseDown = true;});
        }
@@ -439,7 +440,7 @@
    GameConfig.screenMode = "none";
    GameConfig.alignV = "middle";
    GameConfig.alignH = "center";
-   GameConfig.startScene = "ListScene.scene";
+   GameConfig.startScene = "Clip.scene";
    GameConfig.sceneRoot = "";
    GameConfig.debug = false;
    GameConfig.stat = false;
